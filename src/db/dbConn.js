@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Connect to the MongoDB database
 mongoose.connect(
-  'mongodb://127.0.0.1:27017/e-commerce',
+  'mongodb+srv://sakibzaidi:Sakib@123@cluster0.pdxnorp.mongodb.net/e-commerce',
   
    {
   useNewUrlParser: true,
