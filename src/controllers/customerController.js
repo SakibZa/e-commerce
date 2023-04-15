@@ -22,11 +22,13 @@ async function createCustomer(req, res, next) {
         return res.status(400).send(error.details[0].message);
         }
         const customer = new Customer(req.body);
-        mongose.connect();
-        mongose.db("zaidi").save()
+        // mongose.connect();
+        customer.save()
         res.send(customer);
     } catch (error) {
-        next(error);
+        // next(error);
+        res.status(500).send(error)
+        console.log(error);
     }
 }
 
