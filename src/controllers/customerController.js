@@ -2,6 +2,8 @@ const Customer = require('../models/customerModel');
 const { validateCustomer } = require('../utils/validation');
 const mongoose = require('mongoose');
 
+const mongose =require('../db/dbConn');
+
 
 async function getListOfCustomers(req, res, next) {
     try {
@@ -20,7 +22,8 @@ async function createCustomer(req, res, next) {
         return res.status(400).send(error.details[0].message);
         }
         const customer = new Customer(req.body);
-        customer.save()
+        mongose.connect();
+        mongose.db("zaidi").save()
         res.send(customer);
     } catch (error) {
         next(error);
